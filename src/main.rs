@@ -204,6 +204,10 @@ fn dispatch(req: &Value) -> Option<Value> {
 }
 
 fn main() {
+    if std::env::args().nth(1).as_deref() == Some("manifest") {
+        println!("{}", manifest());
+        return;
+    }
     let stdin = std::io::stdin();
     let stdout = std::io::stdout();
     for line in stdin.lock().lines() {
